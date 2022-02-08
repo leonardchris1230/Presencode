@@ -32,12 +32,13 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:paddingStart="12dp"
         android:background="@drawable/bg_round"
         android:hint="Username"
+        android:drawableStart="@drawable/ic_round_person"
+        android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
         android:id="@+id/LoginPass"
@@ -47,9 +48,10 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/bg_round"
-        android:paddingStart="12dp"
         android:hint="Password"
         android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_round_lock"
+        android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginId" />
@@ -91,10 +93,11 @@
         android:id="@+id/loginLupaPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
         android:text="Lupa Password?"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMasuk"
-        app:layout_constraintStart_toStartOf="@+id/LoginPass"
+        app:layout_constraintEnd_toEndOf="@+id/LoginPass"
         app:layout_constraintTop_toBottomOf="@+id/LoginPass" />
 
     <TextView
@@ -126,16 +129,37 @@
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonMasuk"
-        android:layout_width="0dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:text="Masuk"
+        android:layout_marginTop="80dp"
         android:background="@drawable/bg_round"
+        android:backgroundTint="@color/purple_700"
+        android:src="@drawable/ic_round_arrow_right"
         app:layout_constraintEnd_toEndOf="@+id/LoginPass"
-        app:layout_constraintStart_toStartOf="@+id/LoginPass"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPass" />
+        app:layout_constraintTop_toBottomOf="@+id/LoginPass"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Silahkan masuk dengan akun anda"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="Masuk"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMasuk"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMasuk"
+        app:layout_constraintTop_toTopOf="@+id/buttonMasuk" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
