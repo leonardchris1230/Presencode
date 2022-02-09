@@ -1,8 +1,10 @@
-package com.lazilette.presencode;
+package com.lazilette.presencode.ui.register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.lazilette.presencode.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

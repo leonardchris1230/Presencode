@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Presencode">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
