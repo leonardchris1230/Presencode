@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "951524205040",
+    "project_id": "presencode-66597",
+    "storage_bucket": "presencode-66597.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951524205040:android:6d9afdb1b3b497691b7d35",
+        "android_client_info": {
+          "package_name": "com.lazilette.presencode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951524205040-perfi60o3h8q002fhskvo3ikag1l5vds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu82aMRCu9-YZvaNumQSoP04LHrYqBTcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951524205040-perfi60o3h8q002fhskvo3ikag1l5vds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
