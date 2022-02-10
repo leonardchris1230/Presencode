@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14947916666666666" />
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/drawable/ic_checkbox_line.xml" value="0.18020833333333333" />
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/drawable/ic_logout_box_r_line.xml" value="0.18020833333333333" />
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/drawable/ic_qr_scan_2_line.xml" value="0.14947916666666666" />
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/drawable/ic_time.xml" value="0.14947916666666666" />
-        <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/drawable/bg_round_bottom_right.xml" value="0.2703125" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/drawable/bg_round_top.xml" value="0.2703125" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/drawable/bg_round_top_left.xml" value="0.2703125" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/drawable/shape_diagonal.xml" value="0.264" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/layout/activity_forget_password.xml" value="0.13020833333333334" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/layout/activity_home.xml" value="0.4" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/layout/activity_login.xml" value="0.2056159420289855" />
+        <entry key="..\:/MAGANG BKPSDM/Presencode/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/layout/activity_main.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/lchri/AndroidStudioProjects/Presencode/app/src/main/res/layout/activity_register.xml" value="0.22447916666666667" />
