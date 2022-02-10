@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Presencode">
         <activity
+            android:name=".ui.password.ForgetPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity
