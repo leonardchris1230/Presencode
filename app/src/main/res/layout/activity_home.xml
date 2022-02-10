@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeActivity">
+
+    <TextView
+        android:id="@+id/tv_home1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat datang"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/btn_scanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_home1"
+        android:text="Scan presensi"
+        app:layout_constraintStart_toStartOf="@id/tv_home1"
+        />
+
+    <Button
+        android:id="@+id/btn_check_presensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check kehadiran"
+        app:layout_constraintStart_toStartOf="@id/tv_home1"
+        app:layout_constraintTop_toBottomOf="@id/btn_scanner"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keluar"
+        app:layout_constraintTop_toBottomOf="@id/btn_check_presensi"
+        app:layout_constraintStart_toStartOf="@id/tv_home1"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
