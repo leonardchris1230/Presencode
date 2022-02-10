@@ -4,46 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity">
+    tools:context=".ui.home.HomeActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/shape_diagonal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_home1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selamat datang"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:text="Selamat\nDatang"
+        android:textColor="@color/white"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <Button
-        android:layout_marginTop="50dp"
         android:id="@+id/btn_scanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_home1"
+        android:background="@drawable/bg_round"
+        android:layout_width="170dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="100dp"
         android:text="Scan presensi"
-        app:layout_constraintStart_toStartOf="@id/tv_home1"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_check_presensi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
         android:text="check kehadiran"
-        app:layout_constraintStart_toStartOf="@id/tv_home1"
-        app:layout_constraintTop_toBottomOf="@id/btn_scanner"/>
+        app:layout_constraintBottom_toTopOf="@+id/homeClock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_scanner"
+        app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
 
     <Button
+        android:id="@+id/button"
+        android:background="@drawable/bg_round"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:text="Keluar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_scanner"
+        app:layout_constraintTop_toBottomOf="@+id/homeClock" />
+
+    <TextClock
+        android:id="@+id/homeClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Keluar"
-        app:layout_constraintTop_toBottomOf="@id/btn_check_presensi"
-        app:layout_constraintStart_toStartOf="@id/tv_home1"/>
-
+        android:layout_marginStart="10dp"
+        android:text="clock"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_time"
+        android:drawableTint="@color/purple_700"
+        android:textColor="@color/purple_700"
+        android:format12Hour="hh:mm:ss a"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
+        app:layout_constraintStart_toEndOf="@+id/btn_scanner"
+        app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

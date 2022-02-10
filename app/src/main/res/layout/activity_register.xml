@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    android:background="@color/purple_700"
     tools:context=".ui.register.RegisterActivity">
 
     <ImageView
@@ -26,6 +26,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="Buat Akun"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -40,6 +41,9 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_round"
         android:drawableStart="@drawable/ic_round_person"
+        android:textColorHint="#BA000000"
+        android:textColor="#BA000000"
+        android:drawableTint="#BA000000"
         android:hint="Username"
         android:paddingStart="6dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -54,6 +58,9 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_round"
         android:drawableStart="@drawable/ic_round_email"
+        android:textColorHint="#BA000000"
+        android:drawableTint="#BA000000"
+        android:textColor="#BA000000"
         android:hint="Email"
         android:paddingStart="6dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -68,6 +75,9 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_round"
         android:drawableStart="@drawable/ic_round_lock"
+        android:textColorHint="#BA000000"
+        android:drawableTint="#BA000000"
+        android:textColor="#BA000000"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingStart="6dp"
@@ -81,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:text="Username"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         app:layout_constraintStart_toStartOf="@+id/registerUsername" />
 
@@ -91,6 +102,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="15dp"
         android:text="Alamat Email"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/registerEmail"
         app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
 
@@ -101,6 +113,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="15dp"
         android:text="Password"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/registerPassword"
         app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 
@@ -123,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:text="Daftar"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
@@ -130,11 +144,13 @@
         app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/registerMasuk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Masuk?"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700"
         app:layout_constraintEnd_toEndOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
@@ -148,7 +164,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/registerMasuk" />
 
     <View
         android:layout_width="90dp"
@@ -174,6 +190,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Atau daftar dengan"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/buttonGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
