@@ -123,7 +123,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/button"
+        android:id="@+id/keluar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -188,7 +188,7 @@
         android:id="@+id/nameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="loading user..."
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_home1"

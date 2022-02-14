@@ -4,8 +4,10 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.lazilette.presencode.R;
 import com.lazilette.presencode.databinding.ActivityHomeBinding;
 import com.lazilette.presencode.databinding.ActivityLoginBinding;
+import com.lazilette.presencode.ui.login.LoginActivity;
 
 import java.util.Calendar;
 
@@ -35,6 +38,13 @@ public class HomeActivity extends AppCompatActivity {
 
         getHour();
         getName();
+
+        binding.keluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+            }
+        });
     }
 
     public void getHour() {
@@ -73,5 +83,11 @@ public class HomeActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    public void logout(){
+        firebaseAuth.signOut();
+        finish();
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
     }
 }
