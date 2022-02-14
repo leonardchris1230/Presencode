@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/registerDaftar"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
@@ -139,9 +139,9 @@
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/registerDaftar"
+        app:layout_constraintEnd_toStartOf="@+id/registerDaftar"
+        app:layout_constraintTop_toTopOf="@+id/registerDaftar" />
 
     <TextView
         android:id="@+id/registerMasuk"
@@ -151,9 +151,9 @@
         android:text="Masuk?"
         android:textStyle="bold"
         android:textColor="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintEnd_toEndOf="@+id/registerDaftar"
+        app:layout_constraintStart_toStartOf="@+id/registerDaftar"
+        app:layout_constraintTop_toBottomOf="@+id/registerDaftar" />
 
     <ImageButton
         android:id="@+id/buttonGoogle"

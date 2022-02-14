@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
 
-        binding.imageButton.setOnClickListener(new View.OnClickListener() {
+        binding.registerDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String uname = binding.registerUsername.getText().toString();
@@ -67,8 +67,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
-
-
 
     }
     private void register(String username, String email, String password) {
