@@ -184,5 +184,15 @@
         app:layout_constraintStart_toEndOf="@+id/btn_scanner"
         app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
 
+    <TextView
+        android:id="@+id/nameDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_home1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_home1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,12 @@ package com.lazilette.presencode.ui.register;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
     FirebaseAuth auth;
     DatabaseReference reference;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +47,20 @@ public class RegisterActivity extends AppCompatActivity {
         binding.registerDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pd = new ProgressDialog(RegisterActivity.this);
+                pd.setMessage("Mohon Tunggu Sebentar...");
+                pd.show();
+
                 String uname = binding.registerUsername.getText().toString();
                 String email = binding.registerEmail.getText().toString();
                 String password = binding.registerPassword .getText().toString();
 
                 if (TextUtils.isEmpty(uname) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(RegisterActivity.this, "Mohon isi semua field", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 } else if (password.length() < 6) {
                     Toast.makeText(RegisterActivity.this, "Password minimal terdiri dari 6 karakter", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 } else {
                     register(uname, email, password);
                 }
@@ -92,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-
+                                        pd.dismiss();
                                         Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
@@ -100,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 }
                             });
                         } else {
-
+                            pd.dismiss();
                             Toast.makeText(RegisterActivity.this, "Maaf, kamu tidak bisa register dengan username atau email ini", Toast.LENGTH_SHORT).show();
                         }
                     }
