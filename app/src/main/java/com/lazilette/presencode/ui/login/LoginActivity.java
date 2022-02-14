@@ -48,6 +48,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        binding.loginLupaPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+            }
+        });
+
         binding.buttonMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,13 +100,6 @@ public class LoginActivity extends AppCompatActivity {
                             });
                 }
 
-
-                binding.loginLupaPass.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
-                    }
-                });
 
             }
         });
