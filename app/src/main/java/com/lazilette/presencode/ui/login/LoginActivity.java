@@ -39,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        auth = FirebaseAuth.getInstance();
+
         binding.loginBuatAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
                 pd.setMessage("Mohon Tunggu Sebentar...");
                 pd.show();
 
-                String email = binding.loginId.getEditableText().toString();
-                String password = binding.LoginPass.getEditableText().toString();
+                String email = binding.loginId.getText().toString();
+                String password = binding.LoginPass.getText().toString();
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     pd.dismiss();
                     Toast.makeText(LoginActivity.this, "Mohon isi semua field", Toast.LENGTH_SHORT).show();
