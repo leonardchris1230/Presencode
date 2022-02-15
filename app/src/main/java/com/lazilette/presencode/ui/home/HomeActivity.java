@@ -4,10 +4,15 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
+    Dialog dialog, dialogLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +45,20 @@ public class HomeActivity extends AppCompatActivity {
         getHour();
         getName();
 
+        dialog = new Dialog(this);
+        dialogLogout = new Dialog(this);
+
         binding.keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logout();
+               logoutDialog();
+            }
+        });
+
+        binding.homeExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exitDialog();
             }
         });
     }
@@ -85,9 +101,50 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void logout(){
-        firebaseAuth.signOut();
-        finish();
-        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+    private void exitDialog() {
+        dialog.setContentView(R.layout.alert_exit);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageButton yesExit = dialog.findViewById(R.id.btnExit);
+        ImageButton noExit = dialog.findViewById(R.id.btnCLoseE);
+        dialog.show();
+
+        noExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        yesExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finishAffinity();
+                finish();
+            }
+        });
+    }
+
+    private void logoutDialog() {
+        dialogLogout.setContentView(R.layout.alert_logout);
+        dialogLogout.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageButton yesExit = dialogLogout.findViewById(R.id.btnLogout);
+        ImageButton noExit = dialogLogout.findViewById(R.id.btnCLose);
+        dialogLogout.show();
+
+        noExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogLogout.dismiss();
+            }
+        });
+        yesExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogLogout.dismiss();
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            }
+        });
     }
 }

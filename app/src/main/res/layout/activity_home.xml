@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:text="Selamat\nDatang"
         android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/homeExit" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_scanner"
@@ -82,12 +82,11 @@
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/purple_500"
         android:text="check kehadiran"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/homeClock"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_scanner"
         app:layout_constraintTop_toTopOf="@+id/btn_scanner">
@@ -111,8 +110,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="check presensi"
-                android:textColor="@color/white"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +126,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/purple_500"
         android:text="Keluar"
@@ -136,7 +134,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_scanner"
-        app:layout_constraintTop_toBottomOf="@+id/homeClock">
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -173,16 +171,16 @@
         android:id="@+id/homeClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:drawableStart="@drawable/ic_time"
-        android:drawableTint="@color/purple_700"
+        android:drawableTint="@color/white"
         android:format12Hour="hh:mm:ss a"
         android:text="clock"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
-        app:layout_constraintStart_toEndOf="@+id/btn_scanner"
-        app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
+        app:layout_constraintBottom_toBottomOf="@+id/homeExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeExit" />
 
     <TextView
         android:id="@+id/nameDisplay"
@@ -193,6 +191,27 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_home1"
         app:layout_constraintTop_toBottomOf="@+id/tv_home1" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
+        app:layout_constraintStart_toEndOf="@+id/btn_scanner"
+        app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
+
+    <ImageButton
+        android:id="@+id/homeExit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_power"
+        app:tint="@color/white"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
