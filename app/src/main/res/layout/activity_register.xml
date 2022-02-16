@@ -62,6 +62,7 @@
         android:drawableTint="#BA000000"
         android:textColor="#BA000000"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:paddingStart="6dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
