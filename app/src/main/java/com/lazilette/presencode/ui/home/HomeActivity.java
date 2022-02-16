@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -146,5 +147,10 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(HomeActivity.this, "Anda sudah berada di beranda", Toast.LENGTH_SHORT).show();
     }
 }

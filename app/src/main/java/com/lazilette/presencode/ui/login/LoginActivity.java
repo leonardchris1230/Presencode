@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     FirebaseAuth auth;
     DatabaseReference reference;
-    Dialog dialogE;
+    Dialog dialogE,dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+        dialog = new Dialog(LoginActivity.this);
 
         binding.loginBuatAkun.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,5 +107,33 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void exitDialog() {
+        dialog.setContentView(R.layout.alert_exit);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ImageButton yesExit = dialog.findViewById(R.id.btnExit);
+        ImageButton noExit = dialog.findViewById(R.id.btnCLoseE);
+        dialog.show();
+
+        noExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        yesExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finishAffinity();
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitDialog();
     }
 }
