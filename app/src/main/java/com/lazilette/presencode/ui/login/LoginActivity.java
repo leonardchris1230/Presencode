@@ -1,24 +1,28 @@
 package com.lazilette.presencode.ui.login;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,14 +36,14 @@ import com.lazilette.presencode.ui.home.HomeActivity;
 import com.lazilette.presencode.ui.password.ForgetPasswordActivity;
 import com.lazilette.presencode.ui.register.RegisterActivity;
 
-import java.util.Objects;
-
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     FirebaseAuth auth;
     DatabaseReference reference;
-    Dialog dialogE,dialog;
+    Dialog dialogE, dialog;
+    CoordinatorLayout coordinatorLayout;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,18 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         dialog = new Dialog(LoginActivity.this);
+
+        if (isNetworkConnected()==true){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Anda terhubung ke internet", Snackbar.LENGTH_LONG);
+            snackbar.setTextColor(getResources().getColor(R.color.black));
+            snackbar.setBackgroundTint(getResources().getColor(R.color.green));
+            snackbar.show();
+        }else{
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Tidak ada koneksi", Snackbar.LENGTH_LONG);
+            snackbar.setTextColor(getResources().getColor(R.color.white));
+            snackbar.setBackgroundTint(getResources().getColor(R.color.red));
+            snackbar.show();
+        }
 
         binding.loginBuatAkun.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +162,12 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
     @Override

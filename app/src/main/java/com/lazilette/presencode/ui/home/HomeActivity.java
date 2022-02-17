@@ -5,9 +5,11 @@ import static android.content.ContentValues.TAG;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -49,6 +52,18 @@ public class HomeActivity extends AppCompatActivity {
 
         dialog = new Dialog(this);
         dialogLogout = new Dialog(this);
+
+        if (isNetworkConnected()==true){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Anda terhubung ke internet", Snackbar.LENGTH_LONG);
+            snackbar.setTextColor(getResources().getColor(R.color.black));
+            snackbar.setBackgroundTint(getResources().getColor(R.color.green));
+            snackbar.show();
+        }else{
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Tidak ada koneksi", Snackbar.LENGTH_LONG);
+            snackbar.setTextColor(getResources().getColor(R.color.white));
+            snackbar.setBackgroundTint(getResources().getColor(R.color.red));
+            snackbar.show();
+        }
 
         binding.keluar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +164,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });
+    }
+
+    public boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
     @Override
