@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.service.autofill.SaveCallback;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         binding.keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               logoutDialog();
+                logoutDialog();
             }
         });
 
@@ -64,7 +63,6 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, ScannerActivity.class));
             }
         });
-
 
     }
 
@@ -155,6 +153,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(HomeActivity.this, "Anda sudah berada di beranda", Toast.LENGTH_SHORT).show();
+        exitDialog();
     }
 }
