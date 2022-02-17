@@ -55,13 +55,6 @@ public class HomeActivity extends AppCompatActivity {
                logoutDialog();
             }
         });
-
-        binding.homeExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                exitDialog();
-            }
-        });
     }
 
     public void getHour() {
@@ -70,9 +63,11 @@ public class HomeActivity extends AppCompatActivity {
 
         if (timeOfDay >= 0 && timeOfDay < 12) {
             hour = "Selamat\nPagi,";
-        } else if (timeOfDay >= 12 && timeOfDay < 16) {
+        } else if (timeOfDay >= 12 && timeOfDay < 15) {
             hour = "Selamat\nSiang,";
-        } else if (timeOfDay >= 16 && timeOfDay < 24) {
+        } else if (timeOfDay >= 15 && timeOfDay < 19) {
+            hour = "Selamat\nSore,";
+        } else if (timeOfDay >= 19 && timeOfDay < 24) {
             hour = "Selamat\nMalam,";
         } else {
             hour = "Selamat\nDatang,";
@@ -151,6 +146,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(HomeActivity.this, "Anda sudah berada di beranda", Toast.LENGTH_SHORT).show();
+        exitDialog();
     }
 }

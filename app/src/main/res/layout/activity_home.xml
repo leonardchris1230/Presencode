@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Selamat\nDatang"
         android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/homeExit" />
+        app:layout_constraintTop_toBottomOf="@+id/homeClock" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_scanner"
@@ -171,16 +171,16 @@
         android:id="@+id/homeClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:drawableStart="@drawable/ic_time"
         android:drawableTint="@color/white"
         android:format12Hour="hh:mm:ss a"
         android:text="clock"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/homeExit"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeExit" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/nameDisplay"
@@ -200,18 +200,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_scanner"
         app:layout_constraintStart_toEndOf="@+id/btn_scanner"
         app:layout_constraintTop_toTopOf="@+id/btn_scanner" />
-
-    <ImageButton
-        android:id="@+id/homeExit"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/ic_power"
-        app:tint="@color/white"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
