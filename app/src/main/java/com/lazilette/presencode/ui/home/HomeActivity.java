@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.service.autofill.SaveCallback;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ import com.lazilette.presencode.R;
 import com.lazilette.presencode.databinding.ActivityHomeBinding;
 import com.lazilette.presencode.databinding.ActivityLoginBinding;
 import com.lazilette.presencode.ui.login.LoginActivity;
+import com.lazilette.presencode.ui.scanner.ScannerActivity;
 
 import java.util.Calendar;
 
@@ -56,12 +58,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        binding.homeExit.setOnClickListener(new View.OnClickListener() {
+        binding.btnScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitDialog();
+                startActivity(new Intent(HomeActivity.this, ScannerActivity.class));
             }
         });
+
+
     }
 
     public void getHour() {

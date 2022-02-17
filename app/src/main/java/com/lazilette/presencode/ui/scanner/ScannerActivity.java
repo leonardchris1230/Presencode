@@ -7,6 +7,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.zxing.Result;
 import com.lazilette.presencode.R;
@@ -21,11 +22,14 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
+
         setContentView(scannerView);
 
 
         setTitle("Scanning barcode");
         scannerView.startCamera(0);
+        Log.d("mylog","sampe sini");
+
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     private void doRequestPermission() {
         int permissionCheckStorage = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (permissionCheckStorage == PackageManager.PERMISSION_GRANTED) {
+            if (permissionCheckStorage == PackageManager.PERMISSION_DENIED) {
                 requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
             }
         }
