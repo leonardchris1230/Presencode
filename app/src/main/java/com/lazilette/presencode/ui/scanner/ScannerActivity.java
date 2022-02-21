@@ -12,11 +12,17 @@ import android.util.Log;
 import com.google.zxing.Result;
 import com.lazilette.presencode.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.StringTokenizer;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView scannerView;
+    String absen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
 
         setTitle("Scanning barcode");
         scannerView.startCamera(0);
-        Log.d("mylog","sampe sini");
+        Log.d("mylog", "sampe sini");
 
     }
 
@@ -65,5 +71,16 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     @Override
     public void handleResult(com.google.zxing.Result rawResult) {
         onResume();
+        String hasil = rawResult.getText();
+        StringTokenizer tokens = new StringTokenizer(hasil, "#");
+        String kegiatan = tokens.nextToken();
+        String kantor = tokens.nextToken();
+        String tanggal = new SimpleDateFormat("d-MM-yyyy", Locale.getDefault()).format(new Date());
+        String jam = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+        absen = kegiatan + " " +kantor+" "+tanggal+" "+jam;
+        Log.d("mylog",  absen);
+        finish();
+
+
     }
 }
