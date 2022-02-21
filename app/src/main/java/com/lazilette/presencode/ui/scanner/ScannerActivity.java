@@ -34,7 +34,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView scannerView;
-    String absen,name;
+    String absen,name,key,tanggal;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -67,7 +67,8 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     }
 
     public void writeAbsen() {
-        reference = FirebaseDatabase.getInstance().getReference().child("Absen").child("Log Absen");
+
+        reference = FirebaseDatabase.getInstance().getReference().child("Absen").child(key+" "+tanggal);
 
         reference.setValue(absen);
     }
@@ -97,7 +98,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     public void getName() {
         firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        String key = currentUser.getUid();
+        key = currentUser.getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference();
         String userKey = key;
@@ -121,7 +122,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         StringTokenizer tokens = new StringTokenizer(hasil, "#");
         String kegiatan = tokens.nextToken();
         String kantor = tokens.nextToken();
-        String tanggal = new SimpleDateFormat("d-MM-yyyy", Locale.getDefault()).format(new Date());
+        tanggal = new SimpleDateFormat("d-MM-yyyy", Locale.getDefault()).format(new Date());
         String jam = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
         absen = name+" telah absen "+kegiatan + " " +kantor+" "+tanggal+" "+jam;
         Log.d("mylog",  absen);
