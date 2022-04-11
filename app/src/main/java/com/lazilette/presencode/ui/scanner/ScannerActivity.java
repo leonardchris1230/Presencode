@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,7 +62,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     public void onStart() {
         super.onStart();
         scannerView.setResultHandler(this);
-        scannerView.startCamera(0); // 0 Kamera Belakang dan 1 itu kemera depan
+        scannerView.startCamera(0); 
         doRequestPermission();
 
     }
@@ -127,6 +128,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         absen = name+" telah absen "+kegiatan + " " +kantor+" "+tanggal+" "+jam;
         Log.d("mylog",  absen);
         writeAbsen();
+        Toast.makeText(ScannerActivity.this, "Berhasil absen, arigathanks", Toast.LENGTH_SHORT).show();
         finish();
 
 
