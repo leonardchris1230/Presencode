@@ -2,12 +2,14 @@ package com.lazilette.presencode.ui.geofences;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.lazilette.presencode.R;
@@ -18,6 +20,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private float geo_radius = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +49,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-7.265755, 110.398549);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in BKPSDM"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17), 3000, null);
+        //circling
+        CircleOptions circleOptions = new CircleOptions();
+        circleOptions.center(sydney);
+        circleOptions.radius(geo_radius);
+        circleOptions.strokeColor(Color.argb(255,255,0,0));
+        circleOptions.fillColor(Color.argb(64,255,0,0));
+        circleOptions.strokeWidth(4);
+        mMap.addCircle(circleOptions);
+
     }
 }

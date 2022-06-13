@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.lazilette.presencode.R;
 import com.lazilette.presencode.databinding.ActivityHomeBinding;
 import com.lazilette.presencode.databinding.ActivityLoginBinding;
+import com.lazilette.presencode.ui.geofences.MapsActivity;
 import com.lazilette.presencode.ui.login.LoginActivity;
 import com.lazilette.presencode.ui.scanner.ScannerActivity;
 
@@ -76,6 +77,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, ScannerActivity.class));
+            }
+        });
+        binding.btnCheckPresensi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, MapsActivity.class));
             }
         });
 

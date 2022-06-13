@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lazilette.presencode.R;
 import com.lazilette.presencode.databinding.ActivityLoginBinding;
+import com.lazilette.presencode.ui.geofences.MapsActivity;
 import com.lazilette.presencode.ui.home.HomeActivity;
 import com.lazilette.presencode.ui.password.ForgetPasswordActivity;
 import com.lazilette.presencode.ui.register.RegisterActivity;
