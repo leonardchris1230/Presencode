@@ -60,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="44dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/bg_round"
                 android:drawableStart="@drawable/ic_round_email"
@@ -71,6 +71,7 @@
                 android:textColor="#BA000000"
                 android:textColorHint="#BA000000"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 

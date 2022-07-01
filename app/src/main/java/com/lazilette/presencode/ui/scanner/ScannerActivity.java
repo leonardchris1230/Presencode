@@ -70,7 +70,6 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     public void writeAbsen() {
 
         reference = FirebaseDatabase.getInstance().getReference().child("Absen").child(key+" "+tanggal);
-
         reference.setValue(absen);
     }
 

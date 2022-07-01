@@ -1,9 +1,11 @@
 package com.lazilette.presencode.ui.login;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -17,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,6 +42,7 @@ import com.lazilette.presencode.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     ActivityLoginBinding binding;
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -65,13 +69,14 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         dialog = new Dialog(LoginActivity.this);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
 
-        if (isNetworkConnected()==true){
+        if (isNetworkConnected() == true) {
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Anda terhubung ke internet", Snackbar.LENGTH_LONG);
             snackbar.setTextColor(getResources().getColor(R.color.black));
             snackbar.setBackgroundTint(getResources().getColor(R.color.green));
             snackbar.show();
-        }else{
+        } else {
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Tidak ada koneksi", Snackbar.LENGTH_LONG);
             snackbar.setTextColor(getResources().getColor(R.color.white));
             snackbar.setBackgroundTint(getResources().getColor(R.color.red));
@@ -175,4 +180,5 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         exitDialog();
     }
+
 }
