@@ -11,6 +11,8 @@ import android.app.PendingIntent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
@@ -23,18 +25,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.lazilette.presencode.R;
 import com.lazilette.presencode.databinding.ActivityMapsBinding;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String TAG = "MapsActivity";
     private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private float geo_radius = 200;
-    private String GEOFENCE_ID = "SOME";
-    private LatLng pinBKPSDM = new LatLng(-7.265755, 110.398549);
+    private float geo_radius = 11;
+    private String GEOFENCE_ID = "0609";
+    private LatLng pinBKPSDM = new LatLng(-7.351453, 110.505385);
     private GeofenceHelper geofenceHelper;
     private GeofencingClient geofencingClient;
 
@@ -58,16 +63,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-
         mMap.addMarker(new MarkerOptions().position(pinBKPSDM).title("Marker in BKPSDM"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(pinBKPSDM));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pinBKPSDM, 17), 3000, null);
-        trackUserLocation();
         //circling
+        Log.d("mylog", "onSuccess: map ready");
+        Toast.makeText(MapsActivity.this, "map ready", Toast.LENGTH_SHORT).show();
+        addGeofence();
         addCircle();
-       // addGeofence();
+        trackUserLocation();
 
 
     }
@@ -76,10 +80,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         } else {
+            //Ask for permission
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
+                //We need to show user a dialog for displaying why the permission is needed and then ask for the permission...
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
             }
         }
 
@@ -90,18 +96,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        }
+    }
 
 
-    public void addGeofence(){
-        Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID,pinBKPSDM,geo_radius,
+    public void addGeofence() {
+        Toast.makeText(MapsActivity.this, "Geofence triggering on process", Toast.LENGTH_SHORT).show();
+        Log.d("mylog", "onSuccess: Geofence triggering added");
+        Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID, pinBKPSDM, geo_radius,
                 Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL | Geofence.GEOFENCE_TRANSITION_EXIT);
         GeofencingRequest geofencingRequest = geofenceHelper.getGeofencingRequest(geofence);
-        PendingIntent pendingIntent = geofenceHelper.getPendindIntent();
-     //   geofencingClient.addGeofences(geofencingRequest,pendingIntent)
-     //           .addOnSuccessListener(){
+        PendingIntent pendingIntent = geofenceHelper.getPendingIntent();
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {}
+            geofencingClient.addGeofences(geofencingRequest, pendingIntent)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.d(TAG, "onSuccess: Geofence added");
+                            Toast.makeText(MapsActivity.this, "geofence added", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d(TAG, "onFailure: fail");
+                            String errorMsg = geofenceHelper.getErrorMessage(e);
+                            Toast.makeText(MapsActivity.this, "err.."+errorMsg, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
 
         }
+
+
+
 
 
 
@@ -114,6 +143,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         circleOptions.fillColor(Color.argb(64,255,0,0));
         circleOptions.strokeWidth(4);
         mMap.addCircle(circleOptions);
+        Toast.makeText(MapsActivity.this, "circle ready", Toast.LENGTH_SHORT).show();
 
     }
 }

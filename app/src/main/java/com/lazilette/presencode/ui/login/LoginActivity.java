@@ -43,6 +43,8 @@ import com.lazilette.presencode.ui.register.RegisterActivity;
 public class LoginActivity extends AppCompatActivity {
 
     private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
+    private int BACKGROUND_LOCATION_ACCESS_REQUEST_CODE = 10002;
+    private int COARSE_LOCATION_ACCESS_REQUEST_CODE = 10003;
     ActivityLoginBinding binding;
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -70,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         dialog = new Dialog(LoginActivity.this);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_ACCESS_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, BACKGROUND_LOCATION_ACCESS_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, COARSE_LOCATION_ACCESS_REQUEST_CODE);
 
         if (isNetworkConnected() == true) {
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Anda terhubung ke internet", Snackbar.LENGTH_LONG);
