@@ -40,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private float geo_radius = 30;
     private String GEOFENCE_ID = "0609";
     private LatLng pinBKPSDM = new LatLng(-7.265680, 110.398875);
+    //bkpsdm di -7.324105, 110.505515
     private GeofenceHelper geofenceHelper;
     private GeofencingClient geofencingClient;
 
