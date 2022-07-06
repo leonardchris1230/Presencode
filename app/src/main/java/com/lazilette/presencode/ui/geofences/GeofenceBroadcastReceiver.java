@@ -5,12 +5,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingEvent;
+
 public class GeofenceBroadcastReceiver extends BroadcastReceiver {
+    GeofencingEvent geofencingEvent;
+    private Object myEdit;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
-        Toast.makeText(context, "Geofence triggered", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(context, "User berada di area BKPSDM :)", Toast.LENGTH_SHORT).show();
+
+
+
     }
 }

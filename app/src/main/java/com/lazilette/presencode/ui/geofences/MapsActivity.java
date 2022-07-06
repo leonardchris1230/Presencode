@@ -37,9 +37,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private float geo_radius = 11;
+    private float geo_radius = 30;
     private String GEOFENCE_ID = "0609";
-    private LatLng pinBKPSDM = new LatLng(-7.351453, 110.505385);
+    private LatLng pinBKPSDM = new LatLng(-7.265680, 110.398875);
     private GeofenceHelper geofenceHelper;
     private GeofencingClient geofencingClient;
 
@@ -63,13 +63,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        addGeofence();
         mMap.addMarker(new MarkerOptions().position(pinBKPSDM).title("Marker in BKPSDM"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(pinBKPSDM));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pinBKPSDM, 17), 3000, null);
         //circling
         Log.d("mylog", "onSuccess: map ready");
         Toast.makeText(MapsActivity.this, "map ready", Toast.LENGTH_SHORT).show();
-        addGeofence();
         addCircle();
         trackUserLocation();
 
@@ -103,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(MapsActivity.this, "Geofence triggering on process", Toast.LENGTH_SHORT).show();
         Log.d("mylog", "onSuccess: Geofence triggering added");
         Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID, pinBKPSDM, geo_radius,
-                Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL | Geofence.GEOFENCE_TRANSITION_EXIT);
+                Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_DWELL);
         GeofencingRequest geofencingRequest = geofenceHelper.getGeofencingRequest(geofence);
         PendingIntent pendingIntent = geofenceHelper.getPendingIntent();
 
@@ -144,6 +144,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         circleOptions.strokeWidth(4);
         mMap.addCircle(circleOptions);
         Toast.makeText(MapsActivity.this, "circle ready", Toast.LENGTH_SHORT).show();
+        trackUserLocation();
 
     }
 }

@@ -1,12 +1,12 @@
 package com.lazilette.presencode.ui.geofences;
 
-import static com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_DWELL;
 import static com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_ENTER;
 
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.Geofence;
@@ -18,16 +18,17 @@ public class GeofenceHelper extends ContextWrapper {
     PendingIntent pendingIntent;
     private static final String TAG = "GeofenceHelper";
 
+
+
     public GeofenceHelper(Context base) {
-        super(base);
-    }
+        super(base); }
 
     public GeofencingRequest getGeofencingRequest(Geofence geofence){
 
 
         return new GeofencingRequest.Builder()
                 .addGeofence(geofence)
-                .setInitialTrigger(INITIAL_TRIGGER_DWELL)
+                .setInitialTrigger(INITIAL_TRIGGER_ENTER)
                 .build();
 
     }
@@ -37,7 +38,7 @@ public class GeofenceHelper extends ContextWrapper {
                 .setCircularRegion(latLng.latitude, latLng.longitude,radius)
                 .setRequestId(ID)
                 .setTransitionTypes(transitionTypes)
-                .setLoiteringDelay(5000)
+                .setLoiteringDelay(1)
                 .setExpirationDuration(Geofence.NEVER_EXPIRE)
                 .build();
     }
@@ -65,7 +66,12 @@ public class GeofenceHelper extends ContextWrapper {
 
         Intent intent = new Intent(this, GeofenceBroadcastReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this,2607,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-
+        isTriggered();
         return pendingIntent;
+    }
+
+    public boolean isTriggered(){
+
+        return true;
     }
 }
