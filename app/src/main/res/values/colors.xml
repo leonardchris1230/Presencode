@@ -10,4 +10,8 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="green">#4CAF50</color>
+    <color name="blue_schnill">#3b72ff</color>
+    <color name="lime_schnill">#50de89</color>
+    <color name="ligtherlime_schnill">#a1ecbf</color>
+    <color name="yellowish_schnill">#ffda7a</color>
 </resources>

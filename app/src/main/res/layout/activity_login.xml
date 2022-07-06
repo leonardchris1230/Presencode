@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_700"
+    android:background="@color/blue_schnill"
     tools:context=".ui.login.LoginActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:backgroundTint="@color/purple_700"
+        android:backgroundTint="@color/blue_schnill"
         app:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/purple_700"
+            app:contentScrim="@color/blue_schnill"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <ImageView
@@ -137,7 +137,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="12dp"
                 android:text="Lupa Password?"
-                android:textColor="@color/purple_700"
+                android:textColor="@color/blue_schnill"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/LoginPass"
                 app:layout_constraintTop_toBottomOf="@+id/LoginPass" />
@@ -168,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Buat Akun"
-                android:textColor="@color/purple_700"
+                android:textColor="@color/blue_schnill"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -180,7 +180,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="80dp"
                 android:background="@drawable/bg_round"
-                android:backgroundTint="@color/purple_700"
+                android:backgroundTint="@color/blue_schnill"
                 android:src="@drawable/ic_round_arrow_right"
                 app:layout_constraintEnd_toEndOf="@+id/LoginPass"
                 app:layout_constraintTop_toBottomOf="@+id/LoginPass"

@@ -38,7 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/purple_700" />
+                app:tint="@color/blue_schnill" />
 
             <ImageButton
                 android:id="@+id/btnExit"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_round"
                 android:backgroundTint="#4D3700B3"
-                app:tint="@color/purple_700"
+                app:tint="@color/blue_schnill"
                 android:src="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +77,7 @@
                 android:text="Anda yakin untuk keluar aplikasi?"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textColor="@color/purple_700"
+                android:textColor="@color/blue_schnill"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView22"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />

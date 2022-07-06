@@ -220,7 +220,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         if(geofenceHelper.isTriggered()){
             writeAbsen();
         }
-        else if(){
+        else{
             Toast.makeText(ScannerActivity.this, "Pastikan anda di wilayah BKPSDM :)", Toast.LENGTH_LONG).show();
             finish();
         }
